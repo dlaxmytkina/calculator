@@ -97,7 +97,7 @@ function foperation(op){
       if(localOperatonMemory<1 && localOperatonMemory > -1 && MemoryCurrentNumber>-1 && MemoryCurrentNumber<1){
         let from = localOperatonMemory.split('.');
         let k = from[1].length;
-        MemoryCurrentNumber -= parseFloat(localOperatonMemory);
+        MemoryCurrentNumber += parseFloat(localOperatonMemory);
         MemoryCurrentNumber = MemoryCurrentNumber.toFixed(k);
         }
         else{
