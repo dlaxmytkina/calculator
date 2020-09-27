@@ -74,7 +74,6 @@ function numberPress(number){
 function foperation(op){
   var localOperatonMemory = display.value;
   
-  
 
   if(MemoryNewNumber && MemoryPendingOperation !== '='){
     display.value = MemoryCurrentNumber;
@@ -84,31 +83,25 @@ function foperation(op){
     
     if(MemoryPendingOperation === '+'){
       if(localOperatonMemory<1 && localOperatonMemory > 0 && MemoryCurrentNumber>0 && MemoryCurrentNumber<1){
-        let from = localOperatonMemory.split('.');
-        let k = from[1].length;
         let MemoryCurrent = MemoryCurrentNumber + parseFloat(localOperatonMemory);
-        console.log(MemoryCurrent.length);
-        MemoryCurrentNumber = (MemoryCurrent.toFixed(k)/10)*10;
+        MemoryCurrentNumber = (MemoryCurrent.toFixed(7)/10)*10;
 
         }
         else{
       MemoryCurrentNumber += parseFloat(localOperatonMemory);}
     } else if (MemoryPendingOperation === '-'){
       if(localOperatonMemory<1 && localOperatonMemory > -1 && MemoryCurrentNumber>-1 && MemoryCurrentNumber<1){
-        let from = localOperatonMemory.split('.');
-        let k = from[1].length;
+        
         MemoryCurrentNumber += parseFloat(localOperatonMemory);
-        MemoryCurrentNumber = (MemoryCurrentNumber.toFixed(k)/10)*10;
+        MemoryCurrentNumber = (MemoryCurrentNumber.toFixed(7)/10)*10;
         }
         else{
       MemoryCurrentNumber += parseFloat(localOperatonMemory);}
     } else if (MemoryPendingOperation === '*'){
       if(localOperatonMemory<1 && localOperatonMemory > -1 && MemoryCurrentNumber>-1 && MemoryCurrentNumber<1){
-        let from1 = localOperatonMemory.split('.');
-        console.log(from1[1]);
-        let k1 = from1[1].length;
+        
         MemoryCurrentNumber = MemoryCurrentNumber * parseFloat(localOperatonMemory);
-        MemoryCurrentNumber = MemoryCurrentNumber.toFixed(k1*2);
+        MemoryCurrentNumber = (MemoryCurrentNumber.toFixed(7)/10)*10;
         } else {
       MemoryCurrentNumber *= parseFloat(localOperatonMemory);}
     } else if (MemoryPendingOperation === '/'){
